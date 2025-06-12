@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Share Tech Mono', monospace;
+    color: #0f0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.game-container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px solid #0f0;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-header {
+    border-bottom: 1px solid #0f0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.console-output {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.typing-area {
+    border: 1px solid #0f0;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-height: 60px;
+    position: relative;
+}
+
+#target-text {
+    color: #0f0;
+    opacity: 0.7;
+}
+
+#cursor {
+    animation: blink 1s infinite;
+}
+
+.current-char-cursor {
+    position: absolute;
+    bottom: -2px;
+    width: 12px;
+    height: 2px;
+    background-color: #0f0;
+    animation: blink 1s infinite;
+    transition: left 0.1s ease;
+}
+
+.intrusion-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.intrusion {
+    position: absolute;
+    color: #f00;
+    font-size: 24px;
+    text-shadow: 0 0 10px #f00;
+    animation: intrusion-animation 2s ease-out forwards;
+    white-space: nowrap;
+}
+
+@keyframes intrusion-animation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.win-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 255, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: win-fade-in 0.5s ease-in;
+}
+
+.win-message {
+    font-size: 48px;
+    color: #0f0;
+    text-shadow: 0 0 20px #0f0;
+    text-align: center;
+    animation: win-pulse 2s infinite;
+}
+
+@keyframes win-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes win-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #0f0;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.correct {
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.incorrect {
+    color: #f00;
+    text-shadow: 0 0 5px #f00;
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    background: #0f0;
+    border-radius: 50%;
+    animation: particle 1s ease-out forwards;
+}
+
+@keyframes particle {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(var(--x));
+        opacity: 0;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0f0;
+    border-radius: 4px;
+}
+
+.success-message {
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #0f0;
+    }
+    to {
+        text-shadow: 0 0 20px #0f0;
+    }
+}

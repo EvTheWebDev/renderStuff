@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🌈✨ RADICAL CALCULATOR 9000 ✨🌈</title>
+    <style>
+        @keyframes rainbow-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        @keyframes glitter {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(234deg, #ff0000, #ff8700, #ffd300, #deff0a, #a1ff0a, #0aff99, #0aefff, #147df5, #580aff, #be0aff);
+            background-size: 2000% 2000%;
+            animation: rainbow-bg 20s ease infinite;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.8);
+            border: 5px solid #ff00ff;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 30px #00ff00, 0 0 50px #0000ff;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .display {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 20px;
+            background: #000;
+            border: 3px solid #ff00ff;
+            border-radius: 10px;
+            color: #0f0;
+            font-size: 2em;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+            font-family: "Comic Sans MS", cursive;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 1.5em;
+            border: 3px solid #ff00ff;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: white;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            text-shadow: 2px 2px 4px #000;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            animation: shake 0.5s infinite;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        .glitter {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: glitter 1s infinite;
+        }
+
+        marquee {
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            color: #ff00ff;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .construction {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            font-size: 2em;
+            animation: shake 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <marquee scrollamount="10">🌟 WELCOME TO THE MOST RADICAL CALCULATOR IN CYBERSPACE! 🌟</marquee>
+        <input type="text" class="display" readonly>
+        <div class="buttons">
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button onclick="addToDisplay('/')">/</button>
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button onclick="addToDisplay('*')">*</button>
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button onclick="addToDisplay('-')">-</button>
+            <button onclick="addToDisplay('0')">0</button>
+            <button onclick="addToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="addToDisplay('+')">+</button>
+        </div>
+        <button onclick="clearDisplay()" style="width: 100%; margin-top: 10px; background: linear-gradient(45deg, #ff0000, #ff8800)">CLEAR!</button>
+        <div class="construction">🚧</div>
+    </div>
+
+    <script>
+        // Add random glitter elements
+        function addGlitter() {
+            const body = document.body;
+            const glitter = document.createElement('div');
+            glitter.className = 'glitter';
+            glitter.style.left = Math.random() * window.innerWidth + 'px';
+            glitter.style.top = Math.random() * window.innerHeight + 'px';
+            body.appendChild(glitter);
+            
+            setTimeout(() => {
+                body.removeChild(glitter);
+            }, 1000);
+        }
+
+        setInterval(addGlitter, 100);
+
+        // Calculator functions
+        const display = document.querySelector('.display');
+
+        function addToDisplay(value) {
+            display.value += value;
+            // Add some PIZZAZZ to button clicks
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PtsWMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hwFw1Gorr27845CyF8yO3E0csAAwMD');
+            audio.play();
+        }
+
+        function clearDisplay() {
+            display.value = '';
+            // Make it EXTRA
+            document.body.style.animation = 'none';
+            document.body.offsetHeight; // Trigger reflow
+            document.body.style.animation = null;
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+                // Add some WILD effects on calculation
+                const calc = document.querySelector('.calculator');
+                calc.style.transform = 'scale(1.2)';
+                setTimeout(() => calc.style.transform = '', 200);
+            } catch (e) {
+                display.value = 'ERROR!';
+            }
+        }
+    </script>
+</body>
+</html>

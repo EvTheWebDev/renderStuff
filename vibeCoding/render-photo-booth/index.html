@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Conference Photo Booth</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Render Conference Photo Booth</h1>
+        <h2>Atlanta Edition</h2>
+        
+        <div class="booth-container">
+            <div class="video-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+                <div id="overlay" class="overlay"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="startCamera" class="control-btn">
+                    <i class="fas fa-camera"></i> Start Camera
+                </button>
+                <button id="capturePhoto" class="control-btn" disabled>
+                    <i class="fas fa-camera-retro"></i> Take Photo
+                </button>
+            </div>
+
+            <div class="filters">
+                <h3>Choose a Filter</h3>
+                <div class="filter-options">
+                    <button class="filter-btn" data-filter="none">No Filter</button>
+                    <button class="filter-btn" data-filter="peachtree">Peachtree</button>
+                    <button class="filter-btn" data-filter="webdev">Web Dev</button>
+                    <button class="filter-btn" data-filter="atl">ATL Skyline</button>
+                    <button class="filter-btn" data-filter="coca-cola">Coca-Cola</button>
+                    <button class="filter-btn" data-filter="render">Render Conf</button>
+                </div>
+            </div>
+
+            <div class="gallery">
+                <h3>Your Photos</h3>
+                <div id="photoGallery" class="photo-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

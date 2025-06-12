@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEmotivator - Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="modeToggle">
+                <span class="slider"></span>
+            </label>
+            <span id="modeText">Demotivational Mode</span>
+        </div>
+
+        <h1 id="mainTitle">Your Path to Failure</h1>
+        
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Add another disappointing task...">
+            <button id="addTask">Add</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-text">
+                <span id="progressLabel">Reverse Progress:</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="demotivational-message" id="message">
+            Ready to disappoint yourself?
+        </div>
+
+        <ul id="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

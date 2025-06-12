@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Infiltration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="matrix-background" id="matrix-background"></div>
+    <div class="game-container">
+        <div class="terminal">
+            <div class="terminal-header">
+                MAINFRAME ACCESS TERMINAL v1.0
+            </div>
+            <div class="console-output" id="console-output"></div>
+            <div class="typing-area">
+                <span id="target-text"></span>
+                <span id="cursor">█</span>
+            </div>
+            <div class="stats">
+                <div>Accuracy: <span id="accuracy">100</span>%</div>
+                <div>WPM: <span id="wpm">0</span></div>
+                <div>Progress: <span id="progress">0</span>/8</div>
+            </div>
+            <div class="intrusion-container" id="intrusion-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
