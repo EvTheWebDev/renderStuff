@@ -136,10 +136,15 @@
 - UglifyJS
   - JavaScript parser, minimizer, and beautifier
   - Used by VS Code for compiling and shrinking JS
-- Why minify our code?
+- Why Minify Our Code?
   - It makes it considerably lighter to store
     - Shrinking code can make it around 60% smaller.
 - How to Minify Code
   - Get Variable Declarations
   - Replace Them With Letters
   - Generate JS code from the abstraction (the letters)
+- Source Maps
+    - In order for the minified code to know what everything is, it will create a source map to reference.
+- When To Use Minification?
+    - Migrating codebases
+    - Swapping Frameworks
